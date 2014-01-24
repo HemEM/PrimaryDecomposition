@@ -46,7 +46,8 @@ InstallMethod( PolysOverTheSameRing,
     
     j := [ ];
     
-    Perform( [ 1 .. Length( L ) ], function( k ) if not IsZero( i[k] ) then Add( j, i[k] ); fi; end );
+    Perform( [ 1 .. Length( L ) ], function( k ) if not IsZero( i[k] ) then \
+             Add( j, i[k] ); fi; end );
     
     if IsEmpty( j ) then
         return( L );
@@ -78,7 +79,8 @@ InstallMethod( PolysOverTheSameRing,
         
         coeffs := C * coeffs;
         
-        L[ i ] := Involution( HomalgMatrix( monoms, Length( monoms ), 1, S ) ) * ( S * coeffs ); 
+        L[ i ] := Involution( HomalgMatrix( monoms, Length( monoms ), 1, S ) ) * \
+                              ( S * coeffs ); 
         
         L[ i ] := MatElm( L[i], 1, 1 );
         
@@ -217,6 +219,32 @@ InstallMethod( SeparablePart,
 
 end );
 
+##
+InstallMethod( CompanionMatrix,
+	"for a univariate polynomial",
+        [ IsHomalgRingElement ],
+        
+  function( mu )
+    local R, c, d, m, L, e;
+    
+    R := HomalgRing( mu );
+    
+    mu := CoefficientsOfUnivariatePolynomial( mu );
+    
+    m := NrColumns( mu );
+    
+    mu := CertainColumns( -mu, Reversed( [ 1 .. m - 1 ] ) );
+    
+    L := HomalgIdentityMatrix( m - 2, R );
+    
+    e := HomalgZeroMatrix( m - 2, 1, R );
+    
+    L := UnionOfColumns( L, e );
+    
+    return UnionOfRows( mu, L );
+    
+end );
+
 ####################################
 #
 # methods for operations:
@@ -279,7 +307,8 @@ InstallMethod( MatrixEmbedding,
                     
                     od;
                     
-                    elm := ( monoms[k] / R ) * ( MatElm( coeffs, k, 1 ) / R )* ( R * N^deg );
+                    elm := ( monoms[k] / R ) * ( MatElm( coeffs, k, 1 ) / R )* \
+                           ( R * N^deg );
                     
                     S := S + elm;
                 

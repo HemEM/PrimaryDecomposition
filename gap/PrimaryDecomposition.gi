@@ -30,9 +30,9 @@ InstallMethod( IsPrimeZeroDim,
     
     ## The first part of the algorithm computes the minimal polynomials of the 
     ## indeterminates of R and determines if at least one of them is irreducible 
-    ## of degree dim_C( R/I ) or reducible. In the first case this element proves
-    ## that the ideal I is a prime ideal, in the second case the ideal I cannot be
-    ## a prime ideal.
+    ## of degree dim_C( R/I ) or reducible. In the first case this element
+    ## proves that the ideal I is a prime ideal, in the second case the ideal I 
+    ## cannot be a prime ideal.
     ## STEP 1:
     
     R := A / I;
@@ -80,7 +80,8 @@ InstallMethod( IsPrimeZeroDim,
     else
         
         J := PreparationForRadicalOfIdeal( I );
-        e := CertainRows( HomalgIdentityMatrix( NrRows( J[1] ), HomalgRing( J[1] ) ), [1] );
+        e := CertainRows( HomalgIdentityMatrix( NrRows( J[1] ), \
+                          HomalgRing( J[1] ) ), [1] );
         
         J := FGLMToGroebner( J, e );
         
@@ -159,7 +160,8 @@ InstallMethod( IsPrimeZeroDim,
             
             lambda := GeneratorOfAnElementNotContainedInAnyHyperplane( mat );
         else
-            lambda := GeneratorOfAnElementNotContainedInAnyHyperplane( mat, CoefficientsRing( L ) );
+            lambda := GeneratorOfAnElementNotContainedInAnyHyperplane( mat, \
+                          CoefficientsRing( L ) );
         fi;
         
         ## STEP 5:
@@ -266,7 +268,8 @@ InstallMethod( PrimaryDecompositionZeroDim,
         I!.ListOfNonLinearFactors:= ListOfNonLinearFactors;
     fi;
     
-    fac := List( [ 1 .. Length( fac ) ], i -> MatrixOfSubobjectGenerators( fac[i][1] ) );
+    fac := List( [ 1 .. Length( fac ) ], \
+                 i -> MatrixOfSubobjectGenerators( fac[i][1] ) );
     fac := List( [ 1 .. Length( fac ) ], i -> MatElm( fac[i], 1 ,1 ) );
     
     ## Computation of the ring elements obtained by evaluating the factors of
@@ -301,7 +304,8 @@ InstallMethod( PrimaryDecompositionZeroDim,
         
         j[i + 1] := j[i] + NrRows( W[i] );
         
-        M[i] := UnionOfRows( CertainRows( J , [ 1 .. j[i] ] ), CertainRows( J, [ j[i + 1] + 1 .. NrRows( J ) ] ) );
+        M[i] := UnionOfRows( CertainRows( J , [ 1 .. j[i] ] ), \
+                             CertainRows( J, [ j[i + 1] + 1 .. NrRows( J ) ] ) );
         
         M[i] := AppendToGroebnerBasisOfZeroDimensionalIdeal( M[i] );
         

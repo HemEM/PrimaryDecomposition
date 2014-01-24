@@ -125,34 +125,10 @@ InstallMethod( RadicalOfIdeal,
         
     fi;
     
-    FGLM := FGLMToGroebner( M, CertainRows( HomalgIdentityMatrix( NrRows( M[1] ), HomalgRing( M[1] ) ) , [1] ), List( Indeterminates( A ), Name ) )[2];
+    FGLM := FGLMToGroebner( M, CertainRows( HomalgIdentityMatrix( NrRows( M[1] ), \
+            HomalgRing( M[1] ) ) , [1] ), List( Indeterminates( A ), Name ) )[2];
     
     return LeftSubmodule( FGLM, HomalgRing( I ) );
     
 end );
 
-##
-InstallMethod( CompanionMatrix,
-	"for a univariate polynomial",
-        [ IsHomalgRingElement ],
-        
-  function( mu )
-    local R, c, d, m, L, e;
-    
-    R := HomalgRing( mu );
-    
-    mu := CoefficientsOfUnivariatePolynomial( mu );
-    
-    m := NrColumns( mu );
-    
-    mu := CertainColumns( -mu, Reversed( [ 1 .. m - 1 ] ) );
-    
-    L := HomalgIdentityMatrix( m - 2, R );
-    
-    e := HomalgZeroMatrix( m - 2, 1, R );
-    
-    L := UnionOfColumns( L, e );
-    
-    return UnionOfRows( mu, L );
-    
-end );

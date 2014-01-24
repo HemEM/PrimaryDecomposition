@@ -29,6 +29,15 @@ DeclareAttribute( "PolysOverTheSameRing",
         IsList );
 #! @InsertSystem PolysOverTheSameRing
 
+#! @Description
+#!  Computes the companion matrix of the monic univariate polynomial <A>\mu</A>
+#!  over a univariate ring.
+#! @Arguments mu
+#! @Returns a matrix
+DeclareAttribute( "CompanionMatrix",
+        IsHomalgRingElement );
+#! @InsertSystem CompanionMatrix
+
 ####################################
 #
 #! @Section Operations
@@ -42,7 +51,8 @@ DeclareAttribute( "PolysOverTheSameRing",
 #!  embedding <M>K(\alpha)^{r \times c } \hookrightarrow
 #!  K^{r deg(<A>f</A>) \times c deg(<A>f</A>)}</M> which is a the natural
 #!  extension of <M>K(\alpha )\hookrightarrow 
-#!  K^{deg(<A>f</A>)\times deg(<A>f</A>)}: \alpha \mapsto \texttt{CompanionMatrix}(\alpha)</M>.
+#!  K^{deg(<A>f</A>)\times deg(<A>f</A>)}: \alpha \mapsto 
+#!  \texttt{CompanionMatrix}(\alpha)</M>.
 #! @InsertChunk MatrixEmbedding_info
 #! @Arguments M, f
 #! @Returns a matrix

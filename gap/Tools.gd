@@ -63,7 +63,8 @@ DeclareAttribute( "MinimalPolynomial",
 
 #! @Description
 #!  Computes the irreducible factors of the square free part of the 
-#!  univariate polynomial <A>p</A>.
+#!  univariate polynomial <A>p</A> by computing submodule generated 
+#!  by <A>p</A> and taking the generators of the radical decomposition.
 #! @Arguments p
 #! @Returns a list
 DeclareAttribute( "SquareFreeFactors",
@@ -114,8 +115,8 @@ DeclareAttribute( "GapInternalIsomorphicField",
 #!  computed by BasisOverCoefficientsRing and the matrix is defined over
 #!  <M>R/\tilde{I}</M>. This method works only for perfect coefficients
 #!  rings <M>K</M>, since the reduced echelon form only accepts GAP internal
-#!  rings.
-#!  The method is based on an algorithm of Sebastian Jambor (see <Cite Key="SJ"/>).
+#!  rings. The method is based on an algorithm of Sebastian Jambor
+#!  (see <Cite Key="SJ"/>).
 #! @Arguments M
 #! @Returns a list
 DeclareAttribute( "IdealBasisToGroebner", 
@@ -183,14 +184,15 @@ DeclareOperation( "GeneratorOfAnElementNotContainedInAnyHyperplane",
 DeclareOperation( "GeneratorOfAnElementNotContainedInAnyHyperplane",
 	[ IsHomalgMatrix, IsHomalgRing ] );
 
-#! @Arguments M, e
-#! @Returns two lists
-#! @Group FGLMToGroebner
 #! @Description
 #!  Computes a basis of the residue class ring and a Groebner Basis of the
 #!  defining ideal, both defined by the FGLM data <A>M</A> and the identity 
-#!  element <A>e</A>. The method uses an algorithm of Sebastian Jambor
+#!  element <A>e</A>. The list <A>l</A> determines the names of the 
+#!  indeterminates. The method uses an algorithm of Sebastian Jambor
 #!  (see <Cite Key="SJ"/>).
+#! @Arguments M, e
+#! @Returns two lists
+#! @Group FGLMToGroebner
 DeclareOperation( "FGLMToGroebner", 
 	[ IsList, IsHomalgMatrix ] );
 #! @InsertSystem FGLMToGroebner

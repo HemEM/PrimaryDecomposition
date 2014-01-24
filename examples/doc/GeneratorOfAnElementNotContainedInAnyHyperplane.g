@@ -5,7 +5,8 @@ LoadPackage( "PrimaryDecomposition" );
 Q := HomalgFieldOfRationalsInSingular( );
 #! Q
 e := CertainRows( HomalgIdentityMatrix( 5, Q), [ 1 .. 3 ] );
-#! <An unevaluated diagonal right invertible sub-identity 3 x 5 matrix over an external ring>
+#! <An unevaluated diagonal right invertible sub-identity 3 x 5 matrix \
+#! over an external ring>
 lambda := GeneratorOfAnElementNotContainedInAnyHyperplane( e );
 #! <A non-zero left regular 1 x 5 matrix over an external ring>
 l := UnionOfRows( e, lambda );
