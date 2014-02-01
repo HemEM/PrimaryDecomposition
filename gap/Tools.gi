@@ -346,7 +346,10 @@ InstallMethod( IdealBasisToGroebner,
     
     R := HomalgRing( M );
     
-    if not IsPerfect( CoefficientsRing( R ) ) then
+    #! @Chunk ReducedEchelonForm
+    #!  We compute reduced echelon fomrs using GAP and homalg does not support
+    #!  GAP internal function fields yet.
+    if HasRationalParameters( CoefficientsRing( R ) ) then
         TryNextMethod( );
     fi;
     
