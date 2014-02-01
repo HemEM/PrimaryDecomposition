@@ -8,7 +8,7 @@ I := LeftSubmodule( "x^2 - 2*x + 1", A);
 #! <A principal torsion-free ideal given by a cyclic generator>
 IsPrimaryZeroDim( I );
 #! true
-IsPrimeZeroDim( I );
+IsMaximal( I );
 #! false
 A := HomalgFieldOfRationalsInSingular( ) * " x,y,z";
 #! Q[x,y,z]

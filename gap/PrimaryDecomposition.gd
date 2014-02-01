@@ -22,9 +22,9 @@
 #!  and eventually saves an element, which proofs that <A>I</A> is not prime.
 #! @Arguments I
 #! @Returns a LeftSubmodule
-DeclareProperty( "IsPrimeZeroDim",
+DeclareProperty( "IsMaximal",
 	IsHomalgModule );
-#! @InsertSystem IsPrimeZeroDim
+#! @InsertSystem IsMaximal
 
 #! @Description
 #!  Determines if the zerodimensional ideal <A>I</A> is a primary ideal.

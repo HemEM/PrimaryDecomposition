@@ -16,7 +16,7 @@
 ####################################
 
 ##
-InstallMethod( IsPrimeZeroDim,
+InstallMethod( IsMaximal,
 	"for a zero dimensional ideal",
 	[ IsFinitelyPresentedSubmoduleRep and ConstructedAsAnIdeal ],
 	
@@ -197,7 +197,7 @@ InstallMethod ( IsPrimaryZeroDim,
         
     Rad := RadicalOfIdeal( I );
     
-    bool := IsPrimeZeroDim( Rad );
+    bool := IsMaximal( Rad );
         
     if IsBound( Rad!.AZeroDivisor ) then
         I!.AZeroDivisor := Rad!.AZeroDivisor;
