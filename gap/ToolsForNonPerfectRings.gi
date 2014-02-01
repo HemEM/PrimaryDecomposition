@@ -100,7 +100,7 @@ InstallMethod( SeparablePart,
 	[ IsHomalgRingElement ],
 
   function( f )
-    local R, h, g1, h1, CoeffsRing, p, S, T, K, x, coeffs, monoms, i, a,
+    local R, h, g1, h1, C, CoeffsRing, p, S, T, z, y, K, x, coeffs, monoms, i, a,
           coeffs2, monoms2, j, b, g2, g3;
     
     ## make sure that the polynomial is univariate and the coefficients ring
@@ -150,8 +150,10 @@ InstallMethod( SeparablePart,
     ## step 5:
     ## write h( x ) = h( x^p ), replace the ti and the ai by their p-th root 
     
-    ## Characteristic of the base field:
-    CoeffsRing := CoefficientsRing( CoefficientsRing( R ) );
+    ## Characteristic of the field of coefficients:
+    C := CoefficientsRing( R );
+    
+    CoeffsRing := CoefficientsRing( C );
     
     p := Characteristic( CoeffsRing );
     
@@ -159,12 +161,16 @@ InstallMethod( SeparablePart,
     
     ## T is the new ring. The RootOfBaseField determines the power of the 
     ## characteristic p the ti of the base ring are send to the ti in the ring T.
-    T := CoefficientsRing( R ) * List( Indeterminates( R ), Name );
+    y := Indeterminates( R );
+    
+    T := C * List( y, Name );
     
     T!.RootOfBaseField := 1 + R!.RootOfBaseField;
     
+    z :=Indeterminates( T )[1];
+    
     ## For Computation of the p-th root of elements of the perfect base field.
-    K := CoefficientsRing( CoefficientsRing( R ) ) * Indeterminates( R );
+    K := CoeffsRing * y;
     
     x := Indeterminates( K )[1];
     
@@ -199,12 +205,12 @@ InstallMethod( SeparablePart,
             monoms2[j] := monoms2[j] / T;
             
             ## Putting the polynomial together:
-            a := a + b / T * monoms2[j] / T;
+            a := a + ( b / T ) * monoms2[j];
             
         od;
         
-        ## writing h(x) = h(x^p).
-        h := h + a * Indeterminates( T )[1]^( Degree( monoms[i] ) / p ) / T;
+        ## rewrite h(x) = h(x^p).
+        h := h + a * z^( Degree( monoms[i] ) / p ) / T;
         
     od;
     

@@ -83,7 +83,7 @@ InstallMethod( RadicalOfIdeal,
 	[  IsHomalgModule ],
 
   function( I )
-    local A, p, M, J, deg, R, x, K, i, f, FGLM;  
+    local A, p, M, J, deg, R, x, C, K, ratios, i, f, FGLM;  
     
     A := HomalgRing( I );
     
@@ -105,19 +105,23 @@ InstallMethod( RadicalOfIdeal,
     ## Needed to compute the matrix embedding concerning the field extension.
     x := UnusedVariableName( CoefficientsRing( A ), "x" );
     
-    K := CoefficientsRing( A ) * x;
+    C := CoefficientsRing( A );
+    
+    K := C * x;
     
     x := Indeterminates( K )[1];
     
-    p := Characteristic( CoefficientsRing( CoefficientsRing( A ) ) );
+    p := Characteristic( C );
+    
+    ratios := RationalParameters( A );
     
     ## Computing recursily the matrix embedding of the FGLM matrices into the
     ## matrix space over the old field.
     if not IsZero( deg ) then
     
-        for i in [ 1 .. Length( RationalParameters( A ) ) ] do
+        for i in [ 1 .. Length( ratios ) ] do
         
-            f := ( x^p)^deg - RationalParameters( A )[i] / K;
+            f := ( x^p )^deg - ratios[i] / K;
             
             M := List( M, i -> MatrixEmbedding( i , f ) );
         
