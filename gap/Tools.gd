@@ -64,7 +64,7 @@ DeclareAttribute( "MinimalPolynomial",
 #! @Description
 #!  Computes the irreducible factors of the square free part of the 
 #!  univariate polynomial <A>p</A> by computing submodule generated 
-#!  by <A>p</A> and taking the generators of the radical decomposition.
+#!  by <A>p</A> and returns a list of cyclic generators of the radical decomposition.
 #! @Arguments p
 #! @Returns a list
 DeclareAttribute( "SquareFreeFactors",
@@ -114,8 +114,8 @@ DeclareAttribute( "GapInternalIsomorphicField",
 #!  of coefficient vectors with respect to the basis of the ring, which is
 #!  computed by BasisOverCoefficientsRing and the matrix is defined over
 #!  <M>R/\tilde{I}</M>. This method works only for perfect coefficients
-#!  rings <M>K</M>, since the reduced echelon form only accepts GAP internal
-#!  rings. The method is based on an algorithm of Sebastian Jambor
+#!  rings <M>K</M>, since the reduced echelon form only accepts matrices over
+#!  GAP internal rings. The method is based on an algorithm of Sebastian Jambor
 #!  (see <Cite Key="SJ"/>).
 #! @Arguments M
 #! @Returns a list
@@ -158,7 +158,7 @@ DeclareOperation( "MinimalPolynomial",
 	[ IsHomalgRingElement, IsHomalgRingElement ] );
 
 #! @Description
-#!  Determines whether <A>lambda</A> is contained in any <M>n - 1 </M> dimensional 
+#!  Determines whether <A>lambda</A> is contained in any <M>n-1</M>dimensional 
 #!  subspace spanned by the rows of  <A>L</A>.
 #! @Arguments lambda, L
 #! @Returns a matrix
@@ -167,7 +167,7 @@ DeclareOperation( "IsNotContainedInAnyHyperplane",
 #! @InsertSystem IsNotContainedInAnyHyperplane
 	
 #! @Description
-#!  Generates an element of <M>K^n</M>, which is not contained in any <M>n - 1</M> 
+#!  Generates an element of <M>K^n</M>, which is not contained in any <M>n-1</M>
 #!  dimensional subspace of the vector field <M>K^n</M>, respectively <M>C^n</M>,
 #!  spanned by the rows of <A>L</A>. The method repeats generating a random 
 #!  vector <M>\lambda \in K^n</M> until the method IsNotContainedInAnyHyperplan 

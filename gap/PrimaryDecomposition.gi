@@ -288,10 +288,10 @@ InstallMethod( PrimaryDecompositionZeroDim,
         W[i] := R * SyzygiesOfRows( N[i] ) * bas;
     od;
     
-    ## Computing the Ideals M[i]. The Generators for M[ i ]: 
+    ## Computing the ideals M[i]. The generators for M[ i ] are 
     ## all kernels W[j] without the ith and the generators of the ideal I.
     ## Compute inductively the primary decompositions of the M[i] and
-    ## return the union of them which is the primary decomposition of the ideal I.
+    ## return their union which is the primary decomposition of the ideal I.
         
     J := Iterated( W, UnionOfRows );
     

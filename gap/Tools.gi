@@ -373,13 +373,13 @@ InstallMethod( IdealBasisToGroebner,
     C := CertainColumns( Ech, Reversed( [ 1 .. NrColumns( Ech ) ] ) );
     
 
-    ## A reduction of the generators of the ideal is computed by the
+    ## A reduction of the generators of the ideal is computed by using the
     ## reduced echelon form.
     ## The next part of the algorithms iterates over all generators 
     ## starting with the one which has the smallest leading monomial. The
     ## generator will be added to the set GJ if its leading monomial is not 
-    ## a multiply of the leading monomials of GJ.
-    ## A monomial is a multiply of the leading monomials of GJ if it is zero
+    ## a multiple of the leading monomials of GJ.
+    ## A monomial is a multiple of the leading monomials of GJ if it is zero
     ## over the residue class ring S. 
     
     pos := PositionOfFirstNonZeroEntryPerRow( Ech );
@@ -393,7 +393,7 @@ InstallMethod( IdealBasisToGroebner,
     
     leadingmonoms := [ Zero( A ) ];
     
-    ## GJ is supposed to become the Groebner Basis of the ideal.
+    ## GJ is supposed to become the Groebner basis of the ideal.
     
     GJ := HomalgZeroMatrix( 0, 1, A );
     
@@ -423,7 +423,7 @@ InstallMethod( IdealBasisToGroebner,
     
     ## In the last part the algorithm adds the generators of the 
     ## defining ideal of the residue class ring R to the set GJ, whose 
-    ## leading monomial is not a multiply of the leading monomials of GJ. 
+    ## leading monomial is not a multiple of the leading monomials of GJ. 
     ## In the same step the generators get reduced with respect to GJ. 
         
     GI := MatrixOfSubobjectGenerators( DefiningIdeal( R ) );

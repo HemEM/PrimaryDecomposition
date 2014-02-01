@@ -91,7 +91,7 @@ InstallMethod( PolysOverTheSameRing,
 end );
 
 #! @Chunk SeparablePart_info
-#!  For polynomials over nonperfect rings the method uses an algorithm
+#!  For polynomials over nonperfect fields the method uses an algorithm
 #!  of Kemper (see <Cite Key="Kemper" />).
 #! @EndChunk
 

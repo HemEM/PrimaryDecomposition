@@ -18,8 +18,9 @@
 ####################################
 
 #! @Description
-#!  Determines if the zerodimensional ideal <A>I</A> is a prime ideal 
-#!  and eventually saves an element, which proofs that <A>I</A> is not prime.
+#!  Checks if the zerodimensional ideal <A>I</A> is a prime ideal 
+#!  and if <A>I</A> is not primary it saves an element, which proves that
+#!  <A>I</A> is not maximal.
 #! @Arguments I
 #! @Returns a LeftSubmodule
 DeclareProperty( "IsMaximal",
