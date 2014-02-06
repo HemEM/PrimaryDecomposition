@@ -22,7 +22,6 @@
 #!  and if <A>I</A> is not primary it saves an element, which proves that
 #!  <A>I</A> is not maximal.
 #! @Arguments I
-#! @Returns a LeftSubmodule
 DeclareProperty( "IsMaximal",
 	IsHomalgModule );
 #! @InsertSystem IsMaximal
@@ -30,7 +29,6 @@ DeclareProperty( "IsMaximal",
 #! @Description
 #!  Determines if the zerodimensional ideal <A>I</A> is a primary ideal.
 #! @Arguments I
-#! @Returns a LeftSubmodule
 DeclareProperty( "IsPrimaryZeroDim",
 	IsHomalgModule );
 #! @InsertSystem IsPrimaryZeroDim

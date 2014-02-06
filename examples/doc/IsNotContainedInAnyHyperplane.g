@@ -12,7 +12,7 @@ Display( L );
 #! 0,0,1,0,0,
 #! 0,0,0,1,0,
 #! 0,0,0,0,1 
-lambda := HomalgMatrix( "[ 2,0,2,1,1]", 1, 5, Q );
+lambda := HomalgMatrix( "[ 2,0,2,1,1 ]", 1, 5, Q );
 #! <A 1 x 5 matrix over an external ring>
 Display( lambda );
 #! 2,0,2,1,1

@@ -31,7 +31,7 @@ DeclareAttribute( "PreparationForRadicalOfIdeal",
 #! @Description
 #!  Computes the radical of a zero dimensional ideal <A>I</A>. 
 #! @Arguments I
-#! @Returns a LeftSubmodule
+#! @Returns an Ideal
 DeclareAttribute( "RadicalOfIdeal",
 	IsHomalgModule );
 #! @InsertSystem RadicalOfIdeal

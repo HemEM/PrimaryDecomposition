@@ -268,7 +268,7 @@ InstallMethod( PrimaryDecompositionZeroDim,
         I!.ListOfNonLinearFactors:= ListOfNonLinearFactors;
     fi;
     
-    fac := List( [ 1 .. Length( fac ) ], \
+    fac := List( [ 1 .. Length( fac ) ],
                  i -> MatrixOfSubobjectGenerators( fac[i][1] ) );
     fac := List( [ 1 .. Length( fac ) ], i -> MatElm( fac[i], 1 ,1 ) );
     
@@ -304,7 +304,7 @@ InstallMethod( PrimaryDecompositionZeroDim,
         
         j[i + 1] := j[i] + NrRows( W[i] );
         
-        M[i] := UnionOfRows( CertainRows( J , [ 1 .. j[i] ] ), \
+        M[i] := UnionOfRows( CertainRows( J , [ 1 .. j[i] ] ),
                              CertainRows( J, [ j[i + 1] + 1 .. NrRows( J ) ] ) );
         
         M[i] := AppendToGroebnerBasisOfZeroDimensionalIdeal( M[i] );
